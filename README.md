@@ -27,7 +27,7 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 - **Data Proccess**: 
 - **Machine Learning**: Scikit-learn
-- **Web app**: Flask, HTML, Javascript.
+- **Web app**: Flask, HTML.
 
 
 ### Setup
