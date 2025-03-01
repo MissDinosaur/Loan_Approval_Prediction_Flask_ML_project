@@ -16,13 +16,15 @@ Loan_Approval_Prediction_Flask_ML_project/
 │   │   ├── index.html      # Home Page
 │   │   ├── input.html      # User Input Page
 │   │   ├── result.html     # Prediction Result Page
-|
-── routes.py           # ⭐ Main backend logic (Flask request handling & ML interaction)
+│   ├── routes.py           # ⭐ Main backend logic (Flask request handling & ML interaction)
+│   ├── utils.py            # Utility functions
 |
 │── ml/                     # Machine learning module (data, training & prediction)
 │   ├── predict.py          # Predict data
 |
 │── tests/                  # Test code
+│   ├── test_routes.py      
+│   ├── test_utils.py       
 │── main.py                 # Flask entry point (runs the backend server)
 │── requirements.txt        # Dependency list
 │── config.py               # Configuration file
