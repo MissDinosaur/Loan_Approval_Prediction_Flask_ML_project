@@ -75,7 +75,7 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 1. Trigger this Flask server:
    ```bash
-   python app.py
+   python main.py
    ```
 
 2. Open the app in your browser:
