@@ -3,49 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Approval Prediction</title>
+    <title>Finance Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #555;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900">
+    <nav class="bg-blue-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
+            <div>
+                <a href="index.html" class="text-white px-3">Home</a>
+                <a href="about.html" class="text-white px-3">About</a>
+                <a href="result.html" class="text-white px-3">Results</a>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="text-center py-20 bg-blue-500 text-white">
+        <h2 class="text-4xl font-extrabold">Welcome to Finance Prediction</h2>
+        <p class="mt-4 text-lg">Enter your details to predict financial outcomes.</p>
+    </header>
+    
+    <section class="container mx-auto py-10">
+        <div class="bg-white shadow-xl rounded-lg p-6 w-3/4 mx-auto">
+            <h3 class="text-xl font-semibold mb-4">Enter Your Data</h3>
+            <form id="finance-form">
+                <input type="text" id="age" placeholder="Age" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="income" placeholder="Income" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="credit-score" placeholder="Credit Score" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="dti" placeholder="Debt-to-Income Ratio" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="loan-amount" placeholder="Loan Amount" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="payment-history" placeholder="Payment History" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="previous-defaults" placeholder="Previous Defaults" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="employment-status" placeholder="Employment Status" class="block w-full p-2 border rounded mb-3">
+                <input type="text" id="years-job" placeholder="Years at Current Job" class="block w-full p-2 border rounded mb-3">
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Submit</button>
+            </form>
+            <pre id="output" class="mt-4 bg-gray-200 p-4 rounded"></pre>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+        <p>&copy; 2025 Finance Prediction. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        gsap.from("h2", { duration: 1, y: -50, opacity: 0, ease: "bounce" });
 
-    <div class="container">
-        <h1>Welcome to Loan Approval Prediction</h1>
-        <p>This web application helps you predict whether a loan application will be approved based on the infomation user inputs.</p>
-        <p>Enter your details and get an instant prediction!</p>
-        <a href="/input" class="btn">Start Now</a>
-    </div>
-
+        document.getElementById("finance-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = {
+                "Age": document.getElementById("age").value,
+                "Income": document.getElementById("income").value,
+                "Credit Score": document.getElementById("credit-score").value,
+                "Debt-to-Income Ratio": document.getElementById("dti").value,
+                "Loan Amount": document.getElementById("loan-amount").value,
+                "Payment History": document.getElementById("payment-history").value,
+                "Previous Defaults": document.getElementById("previous-defaults").value,
+                "Employment Status": document.getElementById("employment-status").value,
+                "Years at Current Job": document.getElementById("years-job").value
+            };
+            document.getElementById("output").textContent = JSON.stringify(formData, null, 4);
+        });
+    </script>
 </body>
 </html>
