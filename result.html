@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <nav class="bg-blue-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
+            <div>
+                <a href="index.html" class="text-white px-3">Home</a>
+                <a href="about.html" class="text-white px-3">About</a>
+                <a href="result.html" class="text-white px-3">Results</a>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="text-center py-20 bg-blue-500 text-white">
+        <h2 class="text-4xl font-extrabold">Prediction Result</h2>
+        <p class="mt-4 text-lg">Here are your prediction results based on the input data.</p>
+    </header>
+    
+    <section class="container mx-auto py-10">
+        <div class="bg-white shadow-xl rounded-lg p-6 w-3/4 mx-auto">
+            <h3 class="text-xl font-semibold mb-6">Your Prediction Result</h3>
+            <div class="bg-gray-100 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold mb-2">Risk Level: Moderate</h4>
+                <p class="text-lg"><strong>Probability:</strong> 68%</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+        <p>&copy; 2025 Finance Prediction. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.from("h2", { duration: 1, y: -50, opacity: 0, ease: "bounce" });
+    </script>
+</body>
+</html>
