@@ -15,9 +15,8 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
             <div>
-                <a href="input.html" class="text-white px-3">Home</a>
-                <a href="index.html" class="text-white px-3">About</a>
-                <a href="result.html" class="text-white px-3">Results</a>
+                <a href="index" class="text-white px-3">Home</a>
+                <a href="input" class="text-white px-3">Go to predict</a>
             </div>
         </div>
     </nav>
@@ -47,11 +46,11 @@
 
         // Retrieve URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const prediction = urlParams.get('prediction');
-        const name = urlParams.get('name');
+        const prediction_result = urlParams.get('prediction_result');
+        //const name = urlParams.get('name');
 
         // Display the prediction result
-        const predictionText = `The client is ${prediction} for the loan.`;
+        const predictionText = `The client is ${prediction_result} for the loan application` //`The client is ${prediction} for the loan.`;
         document.getElementById('prediction-result').textContent = predictionText;
     </script>
 </body>

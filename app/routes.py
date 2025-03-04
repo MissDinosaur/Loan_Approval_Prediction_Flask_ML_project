@@ -4,7 +4,7 @@ from ml import predict
 from app import app, utils  # Import Flask app from __init__.py
 
 
-@app.route('/')
+@app.route('/index')
 def home():
     return render_template('index.html')
 
@@ -20,7 +20,7 @@ def predict_loan_approval():
     print("Processed features:", features_dict)  # Debugging
 
     # Make prediction
-    prediction = predict.predict(features_dict)
+    prediction = 1 # predict.predict(features_dict)
 
     # Interpret prediciton
     result = ''
@@ -29,4 +29,5 @@ def predict_loan_approval():
     else:
         result = 'Rejected'
 
-    return render_template('result.html', prediction_text=f'The client is {result} for the loan application')
+    return render_template('result.html', prediction_result=result)
+    # return render_template('result.html', prediction_text=f'The client is {result} for the loan application')

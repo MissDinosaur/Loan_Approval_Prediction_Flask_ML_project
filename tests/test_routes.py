@@ -36,14 +36,13 @@ def client():
     client = app.test_client()    # Create a Flask test client
     yield client
 
-"""
+
 def test_home_page(client):
     # Simulate a GET request to the home page
-    response = client.get('/')
+    response = client.get('/index')
     
-    # Assert that the response contains the expected text
-    assert b'Welcome to the home page' in response.data
-"""
+    assert response.status_code == 200
+
 
 @patch('app.utils.cast_to_actual_types')  # Mock cast_to_actual_types
 @patch('ml.predict.predict')  # Mock the predict function
