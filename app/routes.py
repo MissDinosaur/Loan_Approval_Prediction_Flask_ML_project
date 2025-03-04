@@ -19,13 +19,13 @@ def predict_loan_approval():
         print("Raw request data:", request_data)  # Debugging
         features_dict = utils.cast_to_actual_types(request_data)
         print("Processed features:", features_dict)  # Debugging
-        
+
         # Make prediction
-        prediction = 1 # predict.predict(features_dict)
+        prediction =predict.predict(features_dict) #[1, 0] # 
 
         # Interpret prediciton
         result = ''
-        if prediction == 1:
+        if prediction[0] == 1:
             result = 'Approved'
         else:
             result = 'Rejected'
