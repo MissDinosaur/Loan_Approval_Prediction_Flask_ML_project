@@ -1,39 +1,37 @@
 import pickle
 import numpy as np
-
-ordered_columns = [
-    "Age", "Income", "Credit Score", "Debt-to-Income Ratio", "Loan Amount",
-    "Payment History", "Previous Defaults", "Employment Status", "Years at Current Job"
-]
-
-sample_data = {
-    "Age": 30,
-    "Credit Score": 700,
-    "Previous Defaults": 0,
-    "Years at Current Job": 4,
-    "Income": 50000.0,
-    "Debt-to-Income Ratio": 0.3,
-    "Loan Amount": 20000.0,
-    "Payment History": "Excellent",
-    "Employment Status": "Employed"
-}
+import pandas as pd
 
 
 def predict(data: dict):
     # Load the prediction model
-    model_name = 'best_prediction.pkl'
-    with open(model_name, 'rb') as file:
-        model = pickle.load(file)
+    predict_model_name = 'ml/final_model.pkl'
+    one_hot_encoder_name = "ml/preprocessor.pkl"
+    scaler_name = "ml/scaler.pkl"
+    indices_name = "ml/top_indices.pkl"
 
-    # extract the valuues into a list with the specific order
-    features = [data.get(x, None) for x in ordered_columns]
+    with open(predict_model_name, 'rb') as file:
+        predict_model = pickle.load(file)
 
-    # transform features: features need one-hot encoded as it contains non-numeric values.
-    final_features = features
+    with open(one_hot_encoder_name, 'rb') as file:
+        one_hot_encoder = pickle.load(file)
 
-    # reshape final_features
-    final_features = np.array(final_features).reshape(1, -1)
-    prediction = model.predict(final_features)
+    with open(scaler_name, 'rb') as file:
+        scaler = pickle.load(file)
+
+    with open(indices_name, 'rb') as file:
+        top_indices = pickle.load(file)
+
+    print(f"Have {len(data.keys())} keys")
+
+    raw_features = pd.DataFrame([data])
+    
+    # transform raw features: encode string values and scale numeric values.
+    encoded_features = one_hot_encoder.transform(raw_features)
+    scaled_features = scaler.transform(encoded_features)
+    final_feature = scaled_features[:, top_indices]
+    
+
+    prediction = predict_model.predict(final_feature)
 
     return prediction
-

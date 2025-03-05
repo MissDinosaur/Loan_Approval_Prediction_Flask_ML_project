@@ -1,6 +1,6 @@
 integer_column = ["Age", "Credit Score", "Previous Defaults", "Years at Current Job"]
-float_column = ["Income", "Debt-to-Income Ratio", "Loan Amount"]
-str_colun = ["Payment History", "Employment Status"]
+float_column = ["Income", "Debt-to-Income Ratio", "Loan Amount", "Assets Value"]
+str_colun = ["Employment Status"]
 
 def cast_to_actual_types(original_dict: dict[str, str]):
     features_dict = {}

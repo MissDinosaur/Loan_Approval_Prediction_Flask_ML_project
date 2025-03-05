@@ -14,20 +14,21 @@ def input_page():
 
 @app.route('/predict', methods=['POST'])
 def predict_loan_approval():
-    request_data = request.form  # dict[str, str]
-    print("Raw request data:", request_data)  # Debugging
-    features_dict = utils.cast_to_actual_types(request_data)
-    print("Processed features:", features_dict)  # Debugging
+    if request.method == 'POST':
+        request_data = request.form  # dict[str, str]
+        print("Raw request data:", request_data)  # Debugging
+        features_dict = utils.cast_to_actual_types(request_data)
+        print("Processed features:", features_dict)  # Debugging
 
-    # Make prediction
-    prediction = 1 # predict.predict(features_dict)
+        # Make prediction
+        prediction =predict.predict(features_dict) #[1, 0] # 
 
-    # Interpret prediciton
-    result = ''
-    if prediction == 1:
-        result = 'Approved'
-    else:
-        result = 'Rejected'
+        # Interpret prediciton
+        result = ''
+        if prediction[0] == 1:
+            result = 'Approved'
+        else:
+            result = 'Rejected'
 
-    return render_template('result.html', prediction_result=result)
+        return render_template('result.html', prediction_result=result)
     # return render_template('result.html', prediction_text=f'The client is {result} for the loan application')
