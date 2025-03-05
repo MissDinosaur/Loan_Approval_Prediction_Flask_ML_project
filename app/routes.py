@@ -15,13 +15,16 @@ def input_page():
 @app.route('/predict', methods=['POST'])
 def predict_loan_approval():
     if request.method == 'POST':
-        request_data = request.form  # dict[str, str]
+        print(f"request: {request}")
+        request_data = request.get_json()
+        if request_data is None:  # if not json, then parse it to dictionary
+            request_data = request.form.to_dict()
         print("Raw request data:", request_data)  # Debugging
         features_dict = utils.cast_to_actual_types(request_data)
         print("Processed features:", features_dict)  # Debugging
 
         # Make prediction
-        prediction =predict.predict(features_dict) #[1, 0] # 
+        prediction = [1, 0] # predict.predict(features_dict)
 
         # Interpret prediciton
         result = ''
