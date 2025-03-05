@@ -15,8 +15,8 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
             <div>
-                <a href="index.html" class="text-white px-3">Home</a>
-                <a href="input.html" class="text-white px-3">Go to predict</a>
+                <a href="{{ url_for('home') }}" class="text-white px-3">Home</a>
+                <a href="{{ url_for('input_page') }}" class="text-white px-3">Go to predict</a>
             </div>
         </div>
     </nav>
@@ -29,13 +29,15 @@
     <section class="container mx-auto py-10">
         <div class="bg-white shadow-xl rounded-lg p-6 w-3/4 mx-auto">
             <h3 class="text-xl font-semibold mb-6">Your Prediction Result</h3>
-            <div class="bg-gray-100 p-6 rounded-lg">
-                <h4 class="text-2xl font-semibold mb-2">Risk Level: Moderate</h4>
-                <p class="text-lg"><strong>Probability:</strong> 68%</p>
-                <p id="prediction-result" class="mt-4 text-xl font-bold text-green-500"></p>
+            <div class="bg-gray-100 p-6 rounded-lg text-center">
+                <h4 class="text-2xl font-semibold mb-2">Loan Approval Status</h4>
+                <p id="prediction-result" class="mt-4 text-2xl font-bold"></p>
             </div>
             <!-- Go Back Button -->
-            <button onclick="window.location.href='input.html'" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6">Go Back</button>
+            <button onclick="window.location.href='{{ url_for('input_page') }}'" 
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6">
+                Go Back
+            </button>
         </div>
     </section>
 
@@ -48,11 +50,22 @@
 
         // Retrieve URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const prediction_result = urlParams.get('prediction_result');
+        const prediction_result = urlParams.get('prediction');
 
-        // Display the prediction result
-        const predictionText = `The client is ${prediction_result} for the loan application`;
-        document.getElementById('prediction-result').textContent = predictionText;
+        // Display the prediction result dynamically
+        const resultElement = document.getElementById('prediction-result');
+        if (prediction_result) {
+            if (prediction_result.toLowerCase() === "approved") {
+                resultElement.textContent = "✅ The client is Approved for the loan application";
+                resultElement.classList.add("text-green-600");
+            } else {
+                resultElement.textContent = "❌ The client is Rejected for the loan application";
+                resultElement.classList.add("text-red-600");
+            }
+        } else {
+            resultElement.textContent = "⚠️ No prediction available.";
+            resultElement.classList.add("text-gray-600");
+        }
     </script>
 </body>
 </html>
