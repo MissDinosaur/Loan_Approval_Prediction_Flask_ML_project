@@ -1,5 +1,4 @@
 import pickle
-import numpy as np
 import pandas as pd
 
 
@@ -31,7 +30,7 @@ def predict(data: dict):
     scaled_features = scaler.transform(encoded_features)
     final_feature = scaled_features[:, top_indices]
     
-
+    # predict data
     prediction = predict_model.predict(final_feature)
 
     return prediction
