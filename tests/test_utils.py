@@ -40,7 +40,11 @@ def test_cast_to_actual_types():
     ),
     (   # Test invalid numeric conversion
         {"Age": "thirty"},
-        pytest.raises(ValueError)
+        {"Age": None}
+    ),
+    (   # Test invalid numeric conversion
+        {"Previous Defaults": '0.0'},
+        {"Previous Defaults": 0}
     )
 ])
 def test_cast_to_actual_types_various_cases(input_data, expected_output):
