@@ -33,7 +33,7 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 ## Technologies Used
 
-- **Data Proccess**: 
+- **Data Proccess**: Scikit-learn
 - **Machine Learning**: Scikit-learn
 - **Web app**: Flask, HTML.
 
@@ -82,5 +82,5 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 2. Open the app in your browser:
    ```bash
-   http://127.0.0.1:5000
+   http://127.0.0.1:5000/index
    ```
