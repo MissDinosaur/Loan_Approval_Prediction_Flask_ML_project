@@ -11,7 +11,7 @@ mock_form_dict_data = {
     "Credit Score": '700',
     "Debt-to-Income Ratio": '0.3',
     "Loan Amount": '20000',
-    "Assets Value": "10000.0",
+    "Assets Value": "10000",
     "Previous Defaults": '0',
     "Employment Status": "Employed",
     "Years at Current Job": '4'
@@ -29,7 +29,7 @@ mock_processed_data = {
     "Income": 50000.0,
     "Debt-to-Income Ratio": 0.3,
     "Loan Amount": 20000.0,
-    "Assets Value": 10000.0,
+    "Assets Value": 10000,
     "Employment Status": "Employed"
 }
 

@@ -34,4 +34,3 @@ def predict_loan_approval():
             result = 'Rejected'
 
         return render_template('result.html', prediction_result=result)
-    # return render_template('result.html', prediction_text=f'The client is {result} for the loan application')
