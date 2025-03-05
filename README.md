@@ -19,7 +19,10 @@ Loan_Approval_Prediction_Flask_ML_project/
 │   ├── routes.py           # ⭐ Main backend logic (Flask request handling & ML interaction)
 │   ├── utils.py            # Utility functions
 |
-│── ml/                     # Machine learning module (data, training & prediction)
+│── ml/                     # Machine learning module (data, training & prediction, model files)
+│   ├── data_source/        # data source
+│   │   ├── financial_risk_assessment.csv
+│   ├── loan_approval_model.ipynb    # notebook of model training
 │   ├── predict.py          # Predict data
 |
 │── tests/                  # Test code
