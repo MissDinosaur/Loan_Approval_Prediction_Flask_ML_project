@@ -1,10 +1,11 @@
 from unittest.mock import patch
 import pytest
+import json
 from app import app  # Import app from __init__.py
 from werkzeug.datastructures import ImmutableMultiDict
 
-# Mock the features that will be sent in the POST request
-mock_form_data = ImmutableMultiDict({
+# Mock the features of dict that will be sent in the POST request
+mock_form_dict_data = {
     "Age": '30',
     "Income": '50000',
     "Credit Score": '700',
@@ -14,7 +15,10 @@ mock_form_data = ImmutableMultiDict({
     "Previous Defaults": '0',
     "Employment Status": "Employed",
     "Years at Current Job": '4'
-})
+}
+
+# Mock the features of json that will be sent in the POST request
+mock_form_json_data = json.dumps(mock_form_dict_data, default=str)
 
 # Mock the cast_to_actual_types function to return a processed dictionary
 mock_processed_data = {
@@ -46,20 +50,39 @@ def test_home_page(client):
 
 @patch('app.utils.cast_to_actual_types')  # Mock cast_to_actual_types
 @patch('ml.predict.predict')  # Mock the predict function
-def test_predict_loan_approval(mock_predict, mock_cast_to_actual_types, client):
+def test_predict_loan_approval_dict(mock_predict, mock_cast_to_actual_types, client):
     # Mock the return value of cast_to_actual_types function
     mock_cast_to_actual_types.return_value = mock_processed_data
     
     # Mock the return value of predict function
     mock_predict.return_value[0] = 1  # Simulate "Approved"
 
-    response = client.post('/predict', data=mock_form_data)  # simulate submitting a form with data.
+    response = client.post('/predict', json=mock_form_dict_data)  # simulate submitting a form with data.
 
     assert response.status_code == 200
     #assert b'The client is Approved for the loan application' in response.data
 
     # Ensure cast_to_actual_types function was called with correct data
-    mock_cast_to_actual_types.assert_called_with(mock_form_data)
+    mock_cast_to_actual_types.assert_called_with(mock_form_dict_data)
+    # Ensure mock_predict function was called with correct data
+    mock_predict.assert_called_with(mock_processed_data)
+
+@patch('app.utils.cast_to_actual_types')  # Mock cast_to_actual_types
+@patch('ml.predict.predict')  # Mock the predict function
+def test_predict_loan_approval_json(mock_predict, mock_cast_to_actual_types, client):
+    # Mock the return value of cast_to_actual_types function
+    mock_cast_to_actual_types.return_value = mock_processed_data
+    
+    # Mock the return value of predict function
+    mock_predict.return_value[0] = 1  # Simulate "Approved"
+
+    response = client.post('/predict', json=mock_form_json_data)  # simulate submitting a form with data.
+
+    assert response.status_code == 200
+    #assert b'The client is Approved for the loan application' in response.data
+
+    # Ensure cast_to_actual_types function was called with correct data
+    mock_cast_to_actual_types.assert_called_with(mock_form_json_data)
     # Ensure mock_predict function was called with correct data
     mock_predict.assert_called_with(mock_processed_data)
 
@@ -74,7 +97,7 @@ def test_predict_loan_approval_rejected(mock_predict, mock_cast_to_actual_types,
     mock_predict.return_value[0] = 0
 
     # Simulate the POST request to /predict
-    response = client.post('/predict', data=mock_form_data)
+    response = client.post('/predict', json=mock_form_dict_data)
 
     # Assert that the response contains the expected text for "Rejected"
     #assert b'The client is Rejected for the loan application' in response.data
