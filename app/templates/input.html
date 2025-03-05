@@ -89,17 +89,14 @@
                     <div class="info-box">Amount requested for the loan</div>
                     <input type="number" id="loan-amount" placeholder="Loan Amount" class="block p-2 border rounded" min="0" step="0.01" required>
                 </div>
-
+                
                 <div class="input-container">
-                    <label for="payment-history" class="block text-sm font-medium">Payment History</label>
-                    <div class="info-box">Previous payment history (Excellent, Good, Fair, Poor)</div>
-                    <select id="payment-history" class="block p-2 border rounded" required>
-                        <option value="Excellent">Excellent</option>
-                        <option value="Good">Good</option>
-                        <option value="Fair">Fair</option>
-                        <option value="Poor">Poor</option>
-                    </select>
+                    <label for="assets-value" class="block text-sm font-medium">Assets Value</label>
+                    <div class="info-box">Value of assets available with the customer</div>
+                    <input type="number" id="assets-value" placeholder="Assets Value" class="block p-2 border rounded" min="0" step="1" required>
                 </div>
+
+        
 
                 <div class="input-container">
                     <label for="previous-defaults" class="block text-sm font-medium">Previous Defaults</label>
@@ -144,7 +141,7 @@
                 "Credit Score": document.getElementById("credit-score").value,
                 "Debt-to-Income Ratio": document.getElementById("dti").value,
                 "Loan Amount": document.getElementById("loan-amount").value,
-                "Payment History": document.getElementById("payment-history").value,
+                "Assets Value": document.getElementById("assets-value").value,
                 "Previous Defaults": document.getElementById("previous-defaults").value,
                 "Employment Status": document.getElementById("employment-status").value,
                 "Years at Current Job": document.getElementById("years-job").value

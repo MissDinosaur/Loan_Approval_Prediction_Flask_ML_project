@@ -1,5 +1,5 @@
-integer_column = ["Age", "Credit Score", "Previous Defaults", "Years at Current Job"]
-float_column = ["Income", "Debt-to-Income Ratio", "Loan Amount", "Assets Value"]
+integer_column = ["Age", "Credit Score", "Previous Defaults", "Years at Current Job", "Assets Value"]
+float_column = ["Income", "Debt-to-Income Ratio", "Loan Amount"]
 str_colun = ["Employment Status"]
 
 def cast_to_actual_types(original_dict: dict[str, str]):
