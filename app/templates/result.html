@@ -15,8 +15,8 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
             <div>
-                <a href="index" class="text-white px-3">Home</a>
-                <a href="input" class="text-white px-3">Go to predict</a>
+                <a href="index.html" class="text-white px-3">Home</a>
+                <a href="input.html" class="text-white px-3">Go to predict</a>
             </div>
         </div>
     </nav>
@@ -34,6 +34,8 @@
                 <p class="text-lg"><strong>Probability:</strong> 68%</p>
                 <p id="prediction-result" class="mt-4 text-xl font-bold text-green-500"></p>
             </div>
+            <!-- Go Back Button -->
+            <button onclick="window.location.href='input.html'" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6">Go Back</button>
         </div>
     </section>
 
@@ -47,12 +49,10 @@
         // Retrieve URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const prediction_result = urlParams.get('prediction_result');
-        //const name = urlParams.get('name');
 
         // Display the prediction result
-        const predictionText = `The client is ${prediction_result} for the loan application` //`The client is ${prediction} for the loan.`;
+        const predictionText = `The client is ${prediction_result} for the loan application`;
         document.getElementById('prediction-result').textContent = predictionText;
     </script>
 </body>
 </html>
-
