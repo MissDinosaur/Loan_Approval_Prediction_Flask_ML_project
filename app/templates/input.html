@@ -43,8 +43,8 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
             <div>
-                <a href="index.html" class="text-white px-3">Home</a>
-                <a href="input.html" class="text-white px-3">Go to predict</a>
+                <a href="/index" class="text-white px-3">Home</a>
+                <a href="/input" class="text-white px-3">Go to predict</a>
             </div>
         </div>
     </nav>
@@ -150,26 +150,24 @@
                 "Years at Current Job": document.getElementById("years-job").value
             };
 
-            // Send POST request to backend API with JSON data
-            fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Even if there is an error, redirect to result.html
-                const resultUrl = "http://127.0.0.1:5500/app/templates/result.html";
-                window.location.href = resultUrl;  // Redirect to result.html
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Even in case of error, redirect to result.html
-                const resultUrl = "http://127.0.0.1:5500/app/templates/result.html";
-                window.location.href = resultUrl;  // Redirect to result.html
-            });
+			// Send POST request to Flask backend with JSON data
+			fetch('/predict', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			})
+			.then(response => response.text())  // Parse the returned HTML instead of JSON
+			.then(html => {
+				document.open();  // Clear the current page
+				document.write(html);  // Replace with the HTML returned from Flask
+				document.close();  // Close the document stream
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('An error occurred while processing your request. Please try again.');
+			});
         });
     </script>
 </body>

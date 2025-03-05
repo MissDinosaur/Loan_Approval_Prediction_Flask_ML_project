@@ -15,8 +15,8 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
             <div>
-                <a href="index.html" class="text-white px-3">Home</a>
-                <a href="input.html" class="text-white px-3">Go to predict</a>
+                <a href="/index" class="text-white px-3">Home</a>
+                <a href="/input" class="text-white px-3">Go to predict</a>
             </div>
         </div>
     </nav>
@@ -30,12 +30,12 @@
         <div class="bg-white shadow-xl rounded-lg p-6 w-3/4 mx-auto">
             <h3 class="text-xl font-semibold mb-6">Your Prediction Result</h3>
             <div class="bg-gray-100 p-6 rounded-lg">
-                <h4 class="text-2xl font-semibold mb-2">Risk Level: Moderate</h4>
-                <p class="text-lg"><strong>Probability:</strong> 68%</p>
-                <p id="prediction-result" class="mt-4 text-xl font-bold text-green-500"></p>
+                <p id="prediction_result" class="mt-4 text-xl font-bold text-green-500">
+                    The client is <span class="text-blue-500">{{ prediction_result }}</span> for the loan application
+                </p>
             </div>
             <!-- Go Back Button -->
-            <button onclick="window.location.href='input.html'" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6">Go Back</button>
+            <button onclick="window.location.href='/input'" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-6">Go Back</button>
         </div>
     </section>
 
@@ -43,16 +43,6 @@
         <p>&copy; 2025 Finance Prediction. All rights reserved.</p>
     </footer>
 
-    <script>
-        gsap.from("h2", { duration: 1, y: -50, opacity: 0, ease: "bounce" });
-
-        // Retrieve URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const prediction_result = urlParams.get('prediction_result');
-
-        // Display the prediction result
-        const predictionText = `The client is ${prediction_result} for the loan application`;
-        document.getElementById('prediction-result').textContent = predictionText;
-    </script>
+    
 </body>
 </html>
