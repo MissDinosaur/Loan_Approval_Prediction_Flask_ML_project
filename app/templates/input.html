@@ -8,6 +8,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .info-box {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            width: 100%;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .input-container:hover .info-box {
+            display: block;
+        }
+
+        .input-container input, 
+        .input-container select {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -15,8 +43,8 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">Finance Prediction</h1>
             <div>
-                <a href="index" class="text-white px-3">Home</a>
-                <a href="input" class="text-white px-3">Go to predict</a>
+                <a href="index.html" class="text-white px-3">Home</a>
+                <a href="input.html" class="text-white px-3">Go to predict</a>
             </div>
         </div>
     </nav>
@@ -30,34 +58,71 @@
         <div class="bg-white shadow-xl rounded-lg p-6 w-3/4 mx-auto">
             <h3 class="text-xl font-semibold mb-4">Enter Your Data</h3>
             <form id="finance-form">
-                <input type="text" id="age" placeholder="Age" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="income" placeholder="Income" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="credit-score" placeholder="Credit Score" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="dti" placeholder="Debt-to-Income Ratio" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="loan-amount" placeholder="Loan Amount" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="payment-history" placeholder="Payment History" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="previous-defaults" placeholder="Previous Defaults" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="employment-status" placeholder="Employment Status" class="block w-full p-2 border rounded mb-3">
-                <input type="text" id="years-job" placeholder="Years at Current Job" class="block w-full p-2 border rounded mb-3">
-                <!-- New fields -->
-                <select id="gender" class="block w-full p-2 border rounded mb-3">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Non-binary">Non-binary</option>
-                </select>
-                <select id="education" class="block w-full p-2 border rounded mb-3">
-                    <option value="PhD">PhD</option>
-                    <option value="Bachelor's">Bachelor's</option>
-                    <option value="Master's">Master's</option>
-                    <option value="High School">High School</option>
-                </select>
-                <select id="marital-status" class="block w-full p-2 border rounded mb-3">
-                    <option value="Divorced">Divorced</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                </select>
-                <input type="text" id="loan-purpose" placeholder="Loan Purpose" class="block w-full p-2 border rounded mb-3">
+                <!-- Retain the same columns/fields structure -->
+
+                <div class="input-container">
+                    <label for="age" class="block text-sm font-medium">Age</label>
+                    <div class="info-box">Age of the individual (0-150)</div>
+                    <input type="number" id="age" placeholder="Age" class="block p-2 border rounded" min="0" max="150" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="income" class="block text-sm font-medium">Income</label>
+                    <div class="info-box">Monthly or yearly income in currency</div>
+                    <input type="number" id="income" placeholder="Income" class="block p-2 border rounded" min="0" step="0.01" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="credit-score" class="block text-sm font-medium">Credit Score</label>
+                    <div class="info-box">Numeric score representing creditworthiness (e.g., 700)</div>
+                    <input type="number" id="credit-score" placeholder="Credit Score" class="block p-2 border rounded" min="0" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="dti" class="block text-sm font-medium">Debt-to-Income Ratio</label>
+                    <div class="info-box">Percentage of income used for debt payments (0.0 to 1.0)</div>
+                    <input type="number" id="dti" placeholder="Debt-to-Income Ratio" class="block p-2 border rounded" min="0.0" max="1.0" step="0.01" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="loan-amount" class="block text-sm font-medium">Loan Amount</label>
+                    <div class="info-box">Amount requested for the loan</div>
+                    <input type="number" id="loan-amount" placeholder="Loan Amount" class="block p-2 border rounded" min="0" step="0.01" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="payment-history" class="block text-sm font-medium">Payment History</label>
+                    <div class="info-box">Previous payment history (Excellent, Good, Fair, Poor)</div>
+                    <select id="payment-history" class="block p-2 border rounded" required>
+                        <option value="Excellent">Excellent</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Poor">Poor</option>
+                    </select>
+                </div>
+
+                <div class="input-container">
+                    <label for="previous-defaults" class="block text-sm font-medium">Previous Defaults</label>
+                    <div class="info-box">Number of previous loan defaults (0 to 4)</div>
+                    <input type="number" id="previous-defaults" placeholder="Previous Defaults" class="block p-2 border rounded" min="0" max="4" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="employment-status" class="block text-sm font-medium">Employment Status</label>
+                    <div class="info-box">Current employment status</div>
+                    <select id="employment-status" class="block p-2 border rounded" required>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Self-employed">Self-employed</option>
+                    </select>
+                </div>
+
+                <div class="input-container">
+                    <label for="years-job" class="block text-sm font-medium">Years at Current Job</label>
+                    <div class="info-box">How long you have been employed at your current job</div>
+                    <input type="number" id="years-job" placeholder="Years at Current Job" class="block p-2 border rounded" min="0" max="150" required>
+                </div>
+
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Submit</button>
             </form>
         </div>
@@ -71,34 +136,41 @@
         gsap.from("h2", { duration: 1, y: -50, opacity: 0, ease: "bounce" });
 
         document.getElementById("finance-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    const formData = {
-        "Age": document.getElementById("age").value,
-        "Income": document.getElementById("income").value,
-        "Credit Score": document.getElementById("credit-score").value,
-        "Debt-to-Income Ratio": document.getElementById("dti").value,
-        "Loan Amount": document.getElementById("loan-amount").value,
-        "Payment History": document.getElementById("payment-history").value,
-        "Previous Defaults": document.getElementById("previous-defaults").value,
-        "Employment Status": document.getElementById("employment-status").value,
-        "Years at Current Job": document.getElementById("years-job").value,
-        "Gender": document.getElementById("gender").value,
-        "Education Level": document.getElementById("education").value,
-        "Marital Status": document.getElementById("marital-status").value,
-        "Loan Purpose": document.getElementById("loan-purpose").value
-    };
+            event.preventDefault();
 
-    // Predict logic based on form data (example: simple logic)
-    let prediction = "approved"; // default prediction
-    if (parseInt(formData["Income"]) < 30000) {
-        prediction = "denied"; // denial condition
-    }
+            const formData = {
+                "Age": document.getElementById("age").value,
+                "Income": document.getElementById("income").value,
+                "Credit Score": document.getElementById("credit-score").value,
+                "Debt-to-Income Ratio": document.getElementById("dti").value,
+                "Loan Amount": document.getElementById("loan-amount").value,
+                "Payment History": document.getElementById("payment-history").value,
+                "Previous Defaults": document.getElementById("previous-defaults").value,
+                "Employment Status": document.getElementById("employment-status").value,
+                "Years at Current Job": document.getElementById("years-job").value
+            };
 
-    // Create prediction text
-    const predict_text = `The client is ${result} for loan`;
-
-    // Redirect to result.html with query parameters
-    const resultUrl = `result.html?prediction=${encodeURIComponent(prediction)}&predict_text=${encodeURIComponent(predict_text)}&name=${encodeURIComponent(formData["Income"])}`;
-    window.location.href = resultUrl;
-});
+            // Send POST request to backend API with JSON data
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Even if there is an error, redirect to result.html
+                const resultUrl = "http://127.0.0.1:5500/app/templates/result.html";
+                window.location.href = resultUrl;  // Redirect to result.html
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Even in case of error, redirect to result.html
+                const resultUrl = "http://127.0.0.1:5500/app/templates/result.html";
+                window.location.href = resultUrl;  // Redirect to result.html
+            });
+        });
+    </script>
+</body>
+</html>
