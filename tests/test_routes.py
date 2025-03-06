@@ -1,3 +1,12 @@
+"""
+Unit tests for Flask routes handling loan approval predictions.
+
+These tests mock external dependencies and validate:
+1. Home page accessibility.
+2. Loan approval prediction with form data and JSON.
+3. Handling both approved and rejected outcomes.
+"""
+
 from unittest.mock import patch
 import pytest
 import json
@@ -102,3 +111,4 @@ def test_predict_loan_approval_rejected(mock_predict, mock_cast_to_actual_types,
     # Assert that the response contains the expected text for "Rejected"
     #assert b'The client is Rejected for the loan application' in response.data
     assert response.status_code == 200
+
