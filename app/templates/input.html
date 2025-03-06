@@ -62,7 +62,7 @@
 
                 <div class="input-container">
                     <label for="age" class="block text-sm font-medium">Age</label>
-                    <div class="info-box">Age of the individual (0-150)</div>
+                    <div class="info-box">Age (0-150)</div>
                     <input type="number" id="age" placeholder="Age" class="block p-2 border rounded" min="0" max="150" required>
                 </div>
 
@@ -81,10 +81,8 @@
                 <div class="input-container">
                     <label for="dti" class="block text-sm font-medium">Debt</label>
                     <div class="info-box">Annual debt in USD</div>
-                    <input type="number" id="dti" placeholder="Debt" class="block p-2 border rounded" min="0" step="0.01" required>
+                    <input type="number" id="dti" placeholder="Debt-to-Income Ratio" class="block p-2 border rounded" min="0.0" step="0.01" required>
                 </div>
-                
-
 
                 <div class="input-container">
                     <label for="loan-amount" class="block text-sm font-medium">Loan Amount</label>
@@ -98,23 +96,15 @@
                     <input type="number" id="assets-value" placeholder="Assets Value" class="block p-2 border rounded" min="0" step="1" required>
                 </div>
 
-        
-
                 <div class="input-container">
                     <label for="previous-defaults" class="block text-sm font-medium">Previous Defaults</label>
                     <div class="info-box">Number of previous loan defaults you have, eg. 1 or 3 or 4</div>
-                    <select id="previous-defaults" class="block p-2 border rounded" required>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                    <input type="number" id="previous-defaults" placeholder="Previous Defaults" class="block p-2 border rounded" min="0" max="4" required>
                 </div>
 
                 <div class="input-container">
                     <label for="employment-status" class="block text-sm font-medium">Employment Status</label>
-                    <div class="info-box">Employment situation</div>
+                    <div class="info-box">Current employment status</div>
                     <select id="employment-status" class="block p-2 border rounded" required>
                         <option value="Unemployed">Unemployed</option>
                         <option value="Employed">Employed</option>
@@ -124,7 +114,7 @@
 
                 <div class="input-container">
                     <label for="years-job" class="block text-sm font-medium">Years at Current Job</label>
-                    <div class="info-box">Duration of employment at the current job, eg. 1 or 3 or 6</div>
+                    <div class="info-box">The years you have been employed at your current job</div>
                     <input type="number" id="years-job" placeholder="Years at Current Job" class="block p-2 border rounded" min="0" max="150" required>
                 </div>
 

@@ -90,3 +90,5 @@ Loan_Approval_Prediction_Flask_ML_project/
    ```bash
    http://127.0.0.1:5000/index
    ```
+
+## Deploying the Project
