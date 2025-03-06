@@ -12,10 +12,12 @@ def load_model(*model_names, model_loaded_type:str = 'joblib'):
     So, for saving ML models & preprocessing objects (Scikit-Learn, XGBoost) → Use joblib (faster, more efficient).
     """
     models = [] 
-    funtion_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
     for name in model_names:
-        file_path = os.path.join(funtion_dir, name)
+        print(f"model name: {name}")
+        file_path = os.path.join(base_dir,"models", name)
+        print(f"file_path: {file_path}")
         if model_loaded_type == 'joblib':
             models.append(joblib.load(file_path))
         elif model_loaded_type == 'pickle':
@@ -48,4 +50,3 @@ def predict(data: dict, model_loaded_type:str = 'joblib'):
     prediction = predict_model.predict(final_feature)
 
     return prediction  
-

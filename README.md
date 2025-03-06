@@ -22,6 +22,7 @@ Loan_Approval_Prediction_Flask_ML_project/
 │── ml/                     # Machine learning module (data, training & prediction, model files)
 │   ├── data_source/        # data source
 │   │   ├── financial_risk_assessment.csv
+│   ├── models/             # ML models and data processors
 │   ├── loan_approval_model.ipynb    # notebook of model training
 │   ├── predict.py          # Predict data
 |
