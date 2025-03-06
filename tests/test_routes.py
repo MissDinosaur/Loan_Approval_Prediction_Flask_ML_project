@@ -69,7 +69,6 @@ def test_predict_loan_approval_dict(mock_predict, mock_cast_to_actual_types, cli
     response = client.post('/predict', json=mock_form_dict_data)  # simulate submitting a form with data.
 
     assert response.status_code == 200
-    #assert b'The client is Approved for the loan application' in response.data
 
     # Ensure cast_to_actual_types function was called with correct data
     mock_cast_to_actual_types.assert_called_with(mock_form_dict_data)
@@ -88,7 +87,6 @@ def test_predict_loan_approval_json(mock_predict, mock_cast_to_actual_types, cli
     response = client.post('/predict', json=mock_form_json_data)  # simulate submitting a form with data.
 
     assert response.status_code == 200
-    #assert b'The client is Approved for the loan application' in response.data
 
     # Ensure cast_to_actual_types function was called with correct data
     mock_cast_to_actual_types.assert_called_with(mock_form_json_data)
@@ -108,7 +106,5 @@ def test_predict_loan_approval_rejected(mock_predict, mock_cast_to_actual_types,
     # Simulate the POST request to /predict
     response = client.post('/predict', json=mock_form_dict_data)
 
-    # Assert that the response contains the expected text for "Rejected"
-    #assert b'The client is Rejected for the loan application' in response.data
     assert response.status_code == 200
 

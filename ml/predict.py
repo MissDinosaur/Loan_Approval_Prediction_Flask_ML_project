@@ -30,7 +30,7 @@ from typing import  Any
 
 
 def load_model(*model_names: str,
-               model_loaded_type: str = 'joblib') -> Any | list:
+               loading_type: str = 'joblib') -> Any | list:
     """
     Load machine learning models from disk.
 
@@ -39,15 +39,15 @@ def load_model(*model_names: str,
 
     Parameters:
         model_names (str): Variable-length argument of model filenames to load.
-        model_loaded_type (str): The model serialization type
+        loading_type (str): The model serialization and loading tools
         ('joblib' or 'pickle'). Default is 'joblib'.
 
     Returns:
-        Union[Any, List[Any]]: A single model object if one model is loaded,
+        Any | list: A single model object if one model is loaded,
         or a list of models.
 
     Raises:
-        ValueError: If an unsupported model_loaded_type is provided.
+        ValueError: If an unsupported loading_type is provided.
 
     Example:
         >>> load_model('model_joblib.pkl', 'preprocessor_joblib.pkl')
@@ -61,18 +61,18 @@ def load_model(*model_names: str,
         file_path = os.path.join(base_dir, "models", name)
         print(f"File path: {file_path}")
 
-        if model_loaded_type == 'joblib':
+        if loading_type == 'joblib':
             models.append(joblib.load(file_path))
-        elif model_loaded_type == 'pickle':
+        elif loading_type == 'pickle':
             with open(file_path, 'rb') as file:
                 models.append(pickle.load(file))
         else:
-            raise ValueError("Unsupported model_loaded_type. Use 'joblib' or 'pickle'.")
+            raise ValueError("Unsupported loading_type. Use 'joblib' or 'pickle'.")
 
     return models if len(models) > 1 else models[0]
 
 
-def predict(data: dict, model_loaded_type: str = 'joblib'):
+def predict(data: dict, loading_type: str = 'joblib'):
     """
     Perform predictions using a pre-trained machine learning model.
 
@@ -81,27 +81,27 @@ def predict(data: dict, model_loaded_type: str = 'joblib'):
 
     Parameters:
         data (Dict[str, Any]): Input data for prediction as a dictionary.
-        model_loaded_type (str): Model serialization type
+        loading_type (str): Model serialization and loading tools
         ('joblib' or 'pickle'). Default is 'joblib'.
 
     Returns:
         Any: The prediction result from the model.
 
     Raises:
-        ValueError: If an unsupported model_loaded_type is provided.
+        ValueError: If an unsupported loading_type is provided.
 
     Example:
         >>> predict({"Age": 35, "Income": 75000.0})
         array([1])
     """
     # Define model file names based on serialization type
-    if model_loaded_type == 'joblib':
+    if loading_type == 'joblib':
         model_names = ['model_joblib.pkl', 'preprocessor_joblib.pkl',
                        'scaler_joblib.pkl']
-    elif model_loaded_type == 'pickle':
+    elif loading_type == 'pickle':
         model_names = ['model.pkl', 'preprocessor.pkl', 'scaler.pkl']
     else:
-        raise ValueError("Unsupported model_loaded_type. Use 'joblib' or 'pickle'.")
+        raise ValueError("Unsupported loading_type. Use 'joblib' or 'pickle'.")
 
     # Load the prediction model and preprocessing components
     predict_model, one_hot_encoder, scaler = load_model(*model_names)

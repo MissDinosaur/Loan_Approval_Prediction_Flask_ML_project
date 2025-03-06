@@ -63,12 +63,12 @@ def test_predict_functionality(input_data: dict) -> None:
 
 def test_predict_with_invalid_type() -> None:
     """
-    Test the `predict` function with an unsupported model type.
+    Test the `predict` function with an unsupported model loading type.
 
-    Ensures a `ValueError` is raised when an invalid model type is provided.
+    Ensures a `ValueError` is raised when an invalid model loading type is provided.
 
     Raises:
         AssertionError: If no error or an incorrect error is raised.
     """
-    with pytest.raises(ValueError, match="Unsupported model_loaded_type. Use 'joblib' or 'pickle'."):
-        predict.predict(applicant_1, model_loaded_type="invalid_type")
+    with pytest.raises(ValueError, match="Unsupported loading_type. Use 'joblib' or 'pickle'."):
+        predict.predict(applicant_1, loading_type="invalid_type")

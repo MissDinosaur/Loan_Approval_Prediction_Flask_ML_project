@@ -63,7 +63,7 @@ def input_page():
 
 
 @app.route('/predict', methods=['POST'])
-@cache.cached(timeout=180, key_prefix=generate_cache_key)
+@cache.cached(timeout=300, key_prefix=generate_cache_key)
 def predict_loan_approval():
     """
     Handle loan approval prediction requests.
@@ -72,8 +72,8 @@ def predict_loan_approval():
     the input, performs a prediction using the `predict` module, and renders
     the result.
 
-    The result is cached for 3 minutes based on the input data to improve
-    performance.
+    The result is cached for 5 minutes based on the input data to improve
+    performance. 
 
     Returns:
         Response: Rendered HTML content of the `result.html` template with the
@@ -86,7 +86,7 @@ def predict_loan_approval():
         request_data = request.get_json()
         if request_data is None:  # Handle non-JSON input
             request_data = request.form.to_dict()
-
+        print(f"request_data: \n{request_data}")
         # Cast request data to expected data types
         features_dict = utils.cast_to_actual_types(request_data)
 

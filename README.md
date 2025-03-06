@@ -15,11 +15,11 @@ Loan_Approval_Prediction_Flask_ML_project/
 │   │   ├── index.html      # Home Page
 │   │   ├── input.html      # User Input Page
 │   │   ├── result.html     # Prediction Result Page
-│   ├── __init__.py         # Create falsk app and set up configs
+│   ├── __init__.py         # Initialize falsk app and set up configs
 │   ├── routes.py           # ⭐ Main backend logic (Flask request handling & ML interaction)
 │   ├── utils.py            # Utility functions
 |
-│── ml/                     # Machine learning module (data, training & prediction, model files)
+│── ml/                     # Machine learning module (data, training & prediction, models)
 │   ├── data_source/        # Data source
 │   │   ├── financial_risk_assessment.csv
 │   ├── models/             # ML model and data processors
@@ -40,8 +40,8 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 - **Data Proccess**: Scikit-learn, pandas
 - **Machine Learning**: Scikit-learn, joblib, pickle
-- **Backend**: flask, flask_caching
-- **Fronend**: HTML
+- **Backend**: flask, flask-caching
+- **Fronend**: HTML(Jinja2)
 - **Deployment**: 
 
 
