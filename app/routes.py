@@ -24,6 +24,7 @@ def predict_loan_approval():
         print("Processed features:", features_dict)  # Debugging
 
         # Make prediction
+        #prediction = predict.predict(features_dict)
         prediction = predict.predict(features_dict)
 
         # Interpret prediciton

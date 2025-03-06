@@ -2,7 +2,7 @@ from unittest.mock import patch
 import pytest
 import json
 from app import app  # Import app from __init__.py
-from werkzeug.datastructures import ImmutableMultiDict
+
 
 # Mock the features of dict that will be sent in the POST request
 mock_form_dict_data = {

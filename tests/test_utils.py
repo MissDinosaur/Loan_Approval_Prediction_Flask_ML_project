@@ -1,10 +1,9 @@
 import pytest
 from app import utils
-from werkzeug.datastructures import ImmutableMultiDict
 
 
 def test_cast_to_actual_types():
-    mock_data = ImmutableMultiDict({
+    mock_data = {
         "Age": '30',
         "Income": '50000',
         "Credit Score": '700',
@@ -14,7 +13,7 @@ def test_cast_to_actual_types():
         "Previous Defaults": '0',
         "Employment Status": "Employed",
         "Years at Current Job": '4'
-    })
+    }
 
     expected_data = {
         "Age": 30,
