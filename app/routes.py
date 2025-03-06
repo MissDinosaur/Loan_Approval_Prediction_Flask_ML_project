@@ -86,7 +86,7 @@ def predict_loan_approval():
         request_data = request.get_json()
         if request_data is None:  # Handle non-JSON input
             request_data = request.form.to_dict()
-        print(f"request_data: \n{request_data}")
+        print(f"request_data: {request_data}")
         # Cast request data to expected data types
         features_dict = utils.cast_to_actual_types(request_data)
 
