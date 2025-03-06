@@ -4,9 +4,9 @@ import pandas as pd
 
 def predict(data: dict):
     # Load the prediction model and preprocessing components
-    predict_model_name = 'ml/model.pkl'  # ✅ Uses model.pkl
-    one_hot_encoder_name = "ml/preprocessor.pkl"
-    scaler_name = "ml/scaler.pkl"
+    predict_model_name = '/home/NitanshuIdnani/pyproj/Loan_Approval_Prediction_Flask_ML_project/ml/model.pkl'  # ✅ Uses model.pkl
+    one_hot_encoder_name = "/home/NitanshuIdnani/pyproj/Loan_Approval_Prediction_Flask_ML_project/ml/preprocessor.pkl"
+    scaler_name = "/home/NitanshuIdnani/pyproj/Loan_Approval_Prediction_Flask_ML_project/ml/scaler.pkl"
 
     # Load the model and preprocessing files
     with open(predict_model_name, 'rb') as file:
