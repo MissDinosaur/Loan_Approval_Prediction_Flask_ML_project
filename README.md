@@ -11,25 +11,26 @@ Description of project purpose and usage.
 ```plaintext
 Loan_Approval_Prediction_Flask_ML_project/
 │── app/                    # Core backend code for the Flask application
-│   ├── templates/          # Frontend HTML templates (Jinja2)
+│   ├── templates/          # Frontend HTML templates
 │   │   ├── index.html      # Home Page
 │   │   ├── input.html      # User Input Page
 │   │   ├── result.html     # Prediction Result Page
+│   ├── __init__.py         # Create falsk app and set up configs
 │   ├── routes.py           # ⭐ Main backend logic (Flask request handling & ML interaction)
 │   ├── utils.py            # Utility functions
 |
 │── ml/                     # Machine learning module (data, training & prediction, model files)
-│   ├── data_source/        # data source
+│   ├── data_source/        # Data source
 │   │   ├── financial_risk_assessment.csv
-│   ├── models/             # ML models and data processors
-│   ├── loan_approval_model.ipynb    # notebook of model training
-│   ├── predict.py          # Predict function, invoking the models
+│   ├── models/             # ML model and data processors
+│   ├── loan_approval_model.ipynb    # Data processing, model training and model saving
+│   ├── predict.py          # Predict function, loading and invoking the models
 |
 │── tests/                  # Test code
 │   ├── test_predict.py
 │   ├── test_routes.py      
 │   ├── test_utils.py       
-│── main.py                 # Flask entry point (runs the backend server)
+│── main.py                 # Flask entry point (run the backend server)
 │── requirements.txt        # Dependency list
 │── config.py               # Configuration file
 │── README.md               # Project documentation
