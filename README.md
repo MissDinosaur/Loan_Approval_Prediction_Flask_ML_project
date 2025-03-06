@@ -11,7 +11,6 @@ Description of project purpose and usage.
 ```plaintext
 Loan_Approval_Prediction_Flask_ML_project/
 │── app/                    # Core backend code for the Flask application
-│   ├── static/             # Static resources (CSS, JS, Images)
 │   ├── templates/          # Frontend HTML templates (Jinja2)
 │   │   ├── index.html      # Home Page
 │   │   ├── input.html      # User Input Page
@@ -24,9 +23,10 @@ Loan_Approval_Prediction_Flask_ML_project/
 │   │   ├── financial_risk_assessment.csv
 │   ├── models/             # ML models and data processors
 │   ├── loan_approval_model.ipynb    # notebook of model training
-│   ├── predict.py          # Predict data
+│   ├── predict.py          # Predict function, invoking the models
 |
 │── tests/                  # Test code
+│   ├── test_predict.py
 │   ├── test_routes.py      
 │   ├── test_utils.py       
 │── main.py                 # Flask entry point (runs the backend server)
@@ -37,9 +37,11 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 ## Technologies Used
 
-- **Data Proccess**: Scikit-learn
-- **Machine Learning**: Scikit-learn
-- **Web app**: Flask, HTML.
+- **Data Proccess**: Scikit-learn, pandas
+- **Machine Learning**: Scikit-learn, joblib, pickle
+- **Backend**: Flask
+- **Fronend**: HTML
+- **Deployment**: 
 
 
 ### Setup
