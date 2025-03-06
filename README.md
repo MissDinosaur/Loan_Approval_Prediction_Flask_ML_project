@@ -39,7 +39,7 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 - **Data Proccess**: Scikit-learn, pandas
 - **Machine Learning**: Scikit-learn, joblib, pickle
-- **Backend**: Flask
+- **Backend**: flask, flask_caching
 - **Fronend**: HTML
 - **Deployment**: 
 
