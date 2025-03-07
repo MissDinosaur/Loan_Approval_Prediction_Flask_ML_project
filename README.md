@@ -87,7 +87,7 @@ Model Details:
    cd <project-folder-name>
    ```
 
-2. Create a virtual environment named <venvName> (Recommended Python version=3.10.0):
+2. Create a virtual environment named <venvName> (Recommended Python version=3.10.0 or 3.11.0):
    ```bash
    python -m venv <venvName>  # Replace <venvName> by your venv name 
    ```
@@ -109,7 +109,7 @@ Model Details:
    deactivate
    ```
 
-4. Install the dependencies (Recommended Python version=3.10.0):
+4. Install the dependencies (Recommended Python version=3.10.0 or 3.11.0):
    ```bash
    pip install -r requirements.txt
    ```
