@@ -2,9 +2,11 @@
 
 ## Project Overview
 
-### Loan Approval Prediction Model
+### Loan Approval Prediction System
 
-This project implements a machine learning model to predict whether a loan application should be approved or denied based on financial risk assessment data. The model is built using logistic regression and includes data preprocessing, feature engineering, model training, evaluation, and prediction capabilities. 
+This project is a Flask-based Machine Learning Application. 
+
+It implements a machine learning model to predict whether a loan application should be approved or denied based on financial risk assessment data. The model is built using logistic regression and includes data preprocessing, feature engineering, model training, evaluation, and prediction capabilities. 
 
 The interaction between backend and frontend is implemented by Flask. 
 
