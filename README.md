@@ -10,7 +10,7 @@ Description of project purpose and usage.
 
 ```plaintext
 Loan_Approval_Prediction_Flask_ML_project/
-│── app/                    # Core backend code for the Flask application
+│── app/                    # Core frontend and backend code for the Flask application
 │   ├── templates/          # Frontend HTML templates
 │   │   ├── index.html      # Home Page
 │   │   ├── input.html      # User Input Page
