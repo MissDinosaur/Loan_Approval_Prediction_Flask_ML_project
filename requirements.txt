@@ -17,7 +17,7 @@ fonttools==4.56.0
 idna==3.10
 iniconfig==2.0.0
 ipykernel==6.29.5
-ipython==9.0.1
+ipython==8.33.0
 ipython_pygments_lexers==1.1.1
 itsdangerous==2.2.0
 jedi==0.19.2
@@ -45,7 +45,6 @@ pyparsing==3.2.1
 pytest==8.3.4
 python-dateutil==2.9.0.post0
 pytz==2025.1
-pywin32==308
 pyzmq==26.2.1
 requests==2.32.3
 scikit-learn==1.6.1

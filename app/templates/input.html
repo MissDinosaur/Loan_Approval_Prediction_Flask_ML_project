@@ -79,9 +79,9 @@
                 </div>
 
                 <div class="input-container">
-                    <label for="dti" class="block text-sm font-medium">Debt</label>
-                    <div class="info-box">Annual debt in USD</div>
-                    <input type="number" id="dti" placeholder="Debt" class="block p-2 border rounded" min="0.0" step="0.01" required>
+                    <label for="dti" class="block text-sm font-medium">Debt Repayment</label>
+                    <div class="info-box">Monthly debt repayment in USD</div>
+                    <input type="number" id="dti" placeholder="Debt Repayment" class="block p-2 border rounded" min="0.0" step="0.01" required>
                 </div>
 
                 <div class="input-container">
@@ -137,7 +137,7 @@
                 "Age": document.getElementById("age").value,
                 "Income": document.getElementById("income").value,
                 "Credit Score": document.getElementById("credit-score").value,
-                "Debt-to-Income Ratio": document.getElementById("dti").value / document.getElementById("income").value,
+                "Debt-to-Income Ratio": ((document.getElementById("dti").value)*12) / document.getElementById("income").value,
                 "Loan Amount": document.getElementById("loan-amount").value,
                 "Assets Value": document.getElementById("assets-value").value,
                 "Previous Defaults": document.getElementById("previous-defaults").value,
