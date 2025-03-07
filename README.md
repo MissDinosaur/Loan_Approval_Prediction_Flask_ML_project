@@ -172,8 +172,6 @@ Model Details:
 2. Edit the file and replace its content with:  
    ```python
    import sys
-   import os
-   from flask import Flask
 
    # Define project path
    path = "/home/<username>/Loan_Approval_Prediction_Flask_ML_project"
