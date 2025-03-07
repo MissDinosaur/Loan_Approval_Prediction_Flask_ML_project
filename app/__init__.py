@@ -1,8 +1,9 @@
 from flask import Flask
 from flask_caching import Cache
 """
-Only in Flask Applications, __init__.py is used to create app, import routes, and set up configs.
-And use Flask-Caching to cache predictions and avoid recomputation for identical inputs.
+__init__.py marks the folder as a Python package.
+And in Flask Applications, __init__.py is also used to create app, import routes, and set up configs.
+And use Flask-Caching to cache data and avoid recomputation for identical inputs.
 It will enable faster responses.
 """
 
