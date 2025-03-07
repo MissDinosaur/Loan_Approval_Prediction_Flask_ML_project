@@ -109,7 +109,7 @@ Model Details:
    deactivate
    ```
 
-4. Install the dependencies (Recommended Python version=3.11.0):
+4. Install the dependencies (Recommended Python version=3.10.0):
    ```bash
    pip install -r requirements.txt
    ```
@@ -126,3 +126,104 @@ Model Details:
    http://127.0.0.1:5000/index
    ```
 ## Deploying the Project
+
+### **Clone the Project from GitHub**  
+1. **Log in to PythonAnywhere** and open a **Bash console**.  
+2. Navigate to the home directory:  
+   ```bash
+   cd ~
+   ```
+3. Clone the GitHub repository:  
+   ```bash
+   git clone git@github.com:MissDinosaur/Loan_Approval_Prediction_Flask_ML_project.git
+   ```
+4. Move into the project folder:  
+   ```bash
+   cd Loan_Approval_Prediction_Flask_ML_project
+   ```
+
+---
+
+### **Create and Activate a Virtual Environment**  
+1. Create a virtual environment inside the project:  
+   ```bash
+   python3 -m venv venv
+   ```
+2. Activate the virtual environment:  
+   ```bash
+   source venv/bin/activate
+   ```
+3. Install all dependencies:  
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Verify Flask installation:  
+   ```bash
+   python -m flask --version
+   ```
+
+---
+
+### **Set Up the WSGI File**  
+1. Open PythonAnywhere **"Files"** and locate:  
+   ```
+   /var/www/<username>_pythonanywhere_com_wsgi.py
+   ```
+2. Edit the file and replace its content with:  
+   ```python
+   import sys
+   import os
+   from flask import Flask
+
+   # Define project path
+   path = "/home/<username>/Loan_Approval_Prediction_Flask_ML_project"
+   if path not in sys.path:
+       sys.path.append(path)
+
+   # Import the app
+   from app import app as application
+   ```
+3. Save and close the file.  
+
+---
+
+### **Configure the Web App on PythonAnywhere**  
+1. Go to **"Web"** on PythonAnywhere.  
+2. Click **"Add a new web app"** → Choose **"Manual Configuration"** → Select **Python 3.10**.  
+3. Under **WSGI File Path**, set:  
+   ```
+   /home/<username>/Loan_Approval_Prediction_Flask_ML_project/wsgi.py
+   ```
+4. Under **Virtualenv Path**, set:  
+   ```
+   /home/<username>/Loan_Approval_Prediction_Flask_ML_project/venv
+   ```
+5. **Click "Reload Web App"**.
+
+---
+
+### **Test the Deployment**  
+1. Open the PythonAnywhere domain:  
+   ```
+   https://<username>.pythonanywhere.com/index
+   ```
+
+---
+
+### **Updating the Project**  
+
+1. Navigate to the project directory:  
+   ```bash
+   cd ~/Loan_Approval_Prediction_Flask_ML_project
+   ```
+2. Pull the latest changes:  
+   ```bash
+   git pull origin main
+   ```
+3. Activate the virtual environment and install any new dependencies:  
+   ```bash
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+4. **Reload the web app** from the **PythonAnywhere Web dashboard**.
+
