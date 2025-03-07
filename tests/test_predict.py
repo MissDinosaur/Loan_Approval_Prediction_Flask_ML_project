@@ -6,9 +6,9 @@ package.
 
 Tests:
     - test_predict_functionality: Ensures valid predictions (0 or 1) are
-    returned for different inputs.
-    - test_predict_with_invalid_type: Validates error handling for unsupported
-    model types.
+        returned for different inputs.
+    - test_predict_with_invalid_type: Validates error handling for
+        unsupported model types.
 
 Dependencies:
     - pytest: For running and managing test cases.
