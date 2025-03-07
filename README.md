@@ -2,8 +2,11 @@
 
 ## Project Overview
 
-Loan Approval Prediction Model
-This project implements a machine learning model to predict whether a loan application should be approved or denied based on financial risk assessment data. The model is built using logistic regression and includes data preprocessing, feature engineering, model training, evaluation, and prediction capabilities.
+### Loan Approval Prediction Model
+
+This project implements a machine learning model to predict whether a loan application should be approved or denied based on financial risk assessment data. The model is built using logistic regression and includes data preprocessing, feature engineering, model training, evaluation, and prediction capabilities. 
+
+The interaction between backend and frontend is implemented by Flask. 
 
 
 
@@ -39,9 +42,9 @@ Loan_Approval_Prediction_Flask_ML_project/
 
 ## Technologies Used
 - **Data Proccess**: Scikit-learn, pandas, NumPy, Matplotlib
-- **Machine Learning**: Scikit-learn, joblib, SciPy, pickle
-- **Backend**: flask, flask_caching
-- **Fronend**: HTML
+- **Machine Learning**: Scikit-learn, joblib, SciPy, joblib
+- **Backend**: flask, flask-caching
+- **Fronend**: HTML, JavaScript, TailwindCSS
 - **Deployment**: Deployed on pythonanywhere.
 
 ## ML Model Overview
@@ -87,7 +90,7 @@ Model Details:
    cd <project-folder-name>
    ```
 
-2. Create a virtual environment named <venvName> (Recommended Python version=3.10.0 or 3.11.0):
+2. Create a virtual environment named <venvName> (Recommended Python version==3.10.0 or 3.11.0):
    ```bash
    python -m venv <venvName>  # Replace <venvName> by your venv name 
    ```
@@ -109,7 +112,7 @@ Model Details:
    deactivate
    ```
 
-4. Install the dependencies (Recommended Python version=3.10.0 or 3.11.0):
+4. Install the dependencies (Recommended Python version==3.10.0 or 3.11.0):
    ```bash
    pip install -r requirements.txt
    ```
