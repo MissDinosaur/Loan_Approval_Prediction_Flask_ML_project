@@ -87,7 +87,7 @@ Model Details:
    cd <project-folder-name>
    ```
 
-2. Create a virtual environment named <venvName> (Recommended Python version=3.11.0):
+2. Create a virtual environment named <venvName> (Recommended Python version=3.10.0):
    ```bash
    python -m venv <venvName>  # Replace <venvName> by your venv name 
    ```
